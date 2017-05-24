@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  procesor: MyString
+  video_card: MyString
+  audio_card: MyString
+  hard_disk: MyString
+  materunska_plata: MyString
+  dod_complectuuchi: MyString
+
+two:
+  procesor: MyString
+  video_card: MyString
+  audio_card: MyString
+  hard_disk: MyString
+  materunska_plata: MyString
+  dod_complectuuchi: MyString
