@@ -1,6 +1,7 @@
 = form_tag workers_path, method: :get do 
   = text_field_tag :search, params[:search], placeholder: "Search Posts"
-  = submit_tag "Search" 
+  = submit_tag "Search"
+  
 %table 
   %tr
     %th
