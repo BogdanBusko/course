@@ -4,7 +4,7 @@
     = f.text_field :name
   %div
     = f.label :work_start, 'Дата створення:' 
-    = f.text_field :work_start
+    = f.date_field :work_start
   %div
     = f.submit 'Додати'
     = link_to "Назад", url_for(:back), class: 'close'

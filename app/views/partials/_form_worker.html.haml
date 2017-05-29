@@ -1,0 +1,16 @@
+= form_for @worker do |f|
+  %div
+    = f.label :pib, 'Робоче місце:' 
+    = f.text_field :pib
+  %div
+    = f.label :posada, 'Посада:' 
+    = f.text_field :posada
+  %div 
+    = f.label :login, 'Логін'
+    = f.text_field :login
+  %div
+    = f.label :work_play_id
+    = f.select :work_play_id, @work_place.map{ |e| ["Відділ: #{ Room.find(e.room_id).viddil }| Поверх: #{ Room.find(e.room_id).stage }| Номер: #{ Room.find(e.room_id).stage }| Робоче місце:  #{ e.name }", "#{e.id}"] }
+  %div
+    = f.submit 'Додати'
+    = link_to "Назад", url_for(:back), class: 'close'

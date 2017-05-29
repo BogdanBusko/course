@@ -19,7 +19,7 @@ class WorkPlaysController < ApplicationController
   end
 
   def update 
-    @room = find(params[:room_id])
+    @room = Room.find(params[:room_id])
     @room_wp = @room.work_play.find(params[:id])
     @room_wp.update(work_plays_params)
 

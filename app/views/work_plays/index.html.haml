@@ -1,4 +1,11 @@
 %table
+  %tr
+    %th
+      Робоче місце
+    %th
+      Початок роботи
+    %th
+      Працівники
   - @room_wp.work_play.each do |work|
     %tr
       %td
@@ -7,6 +14,11 @@
         = work.work_start
       %td
         %table
+          %tr
+            %th
+              ПІБ
+            %th
+              Посада
           - @worker.where(work_play_id: work.id).each do |worker|
             %tr
               %td
