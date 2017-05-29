@@ -1,6 +1,12 @@
 class WorkPlaysController < ApplicationController
   def index
-    @room_wp = Room.find(params[:room_id])
+    @room = Room.find(params[:room_id])
+    @room_wp = if params[:search]
+        @room.work_play.search(params[:search]).order("#{sort_column} #{sort_direction}")
+      else
+        @room.work_play.order("#{sort_column} #{sort_direction}")
+      end
+      
     @worker = Worker
   end
 
@@ -38,5 +44,13 @@ class WorkPlaysController < ApplicationController
 
     def work_plays_params
       params.require(:work_play).permit(:name, :work_start, :room_id, :worker_id)
+    end
+
+    def sort_column
+      params[:sort] || "id"
+    end
+
+    def sort_direction
+      params[:direction] || "asc"
     end
 end

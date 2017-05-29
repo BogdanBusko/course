@@ -1,6 +1,10 @@
 class DevicesController < ApplicationController
   def index
-    @devices = Device.all
+    @devices = if params[:search]
+        Device.search(params[:search]).order("#{sort_column} #{sort_direction}")
+      else
+        Device.all.order("#{sort_column} #{sort_direction}")
+      end
   end
 
   def new
@@ -37,5 +41,13 @@ class DevicesController < ApplicationController
 
     def device_params
       params.require(:device).permit(:model, :inv_nomer, :seriynuy_nomer, :price, :buy_date, :work_play_id)
+    end
+
+    def sort_column
+      params[:sort] || "id"
+    end
+
+    def sort_direction
+      params[:direction] || "asc"
     end
 end

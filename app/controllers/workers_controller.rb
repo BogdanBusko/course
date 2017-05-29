@@ -1,6 +1,10 @@
 class WorkersController < ApplicationController
   def index
-    @workers = Worker.all
+    @workers = if params[:search]
+        Worker.search(params[:search]).order("#{sort_column} #{sort_direction}")
+      else
+        Worker.all.order("#{sort_column} #{sort_direction}")
+      end
   end
 
   def new 
@@ -37,5 +41,13 @@ class WorkersController < ApplicationController
 
     def worker_params
       params.require(:worker).permit(:pib, :posada, :login, :work_play_id)
+    end
+
+    def sort_column
+      params[:sort] || "id"
+    end
+
+    def sort_direction
+      params[:direction] || "asc"
     end
 end

@@ -1,11 +1,14 @@
+= form_tag rooms_path, method: :get do 
+  = text_field_tag :search, params[:search], placeholder: "Search Posts"
+  = submit_tag "Search" 
 %table
   %tr
     %th
-      Поверх
+      = sortable "stage", "Поверх"
     %th
-      Кабінет №
+      = sortable "number", "Кабінет №"
     %th
-      Відділ
+      = sortable "viddil", "Відділ"
   - @rooms.each do |room|
     %tr
       %td

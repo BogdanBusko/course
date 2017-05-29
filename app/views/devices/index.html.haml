@@ -1,15 +1,19 @@
+= form_tag devices_path, method: :get do 
+  = text_field_tag :search, params[:search], placeholder: "Search Posts"
+  = submit_tag "Search" 
+
 %table
   %tr
     %th
-      Модель
+      = sortable "model", "Модель"
     %th
-      Інвентаризаційний номер
+      = sortable "inv_nomer", "Інвентаризаційний номер"
     %th
-      Серійний номер
+      = sortable "seriynuy_nomer", "Серійний номер"
     %th
-      Ціна
+      = sortable "price", "Ціна"
     %th
-      Дата придбання
+      = sortable "buy_date", "Дата придбання"
   - @devices.each do |device|
     %tr
       %td

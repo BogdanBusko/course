@@ -1,11 +1,14 @@
+= form_tag workers_path, method: :get do 
+  = text_field_tag :search, params[:search], placeholder: "Search Posts"
+  = submit_tag "Search" 
 %table 
   %tr
     %th
-      ПІБ
+      = sortable "pib", "ПІБ"
     %th
-      Посада
+      = sortable "posada", "Посада"
     %th
-      Логін
+      = sortable "login", "Логін"
   - @workers.each do |worker|
     %tr
       %td

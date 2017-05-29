@@ -1,6 +1,10 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all
+    @rooms = if params[:search]
+        Room.search(params[:search]).order("#{sort_column} #{sort_direction}")
+      else
+        Room.all.order("#{sort_column} #{sort_direction}")
+      end
   end
 
   def new 
@@ -34,5 +38,13 @@ class RoomsController < ApplicationController
 
     def room_params
       params.require(:room).permit(:stage, :number, :viddil)
+    end
+
+    def sort_column
+      params[:sort] || "id"
+    end
+
+    def sort_direction
+      params[:direction] || "asc"
     end
 end

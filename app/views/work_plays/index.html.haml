@@ -1,14 +1,18 @@
+= form_tag room_work_plays_path(@room.id), method: :get do 
+  = text_field_tag :search, params[:search], placeholder: "Search Posts"
+  = submit_tag "Search" 
+
 %table
   %tr
     %th
-      Робоче місце
+      = sortable "name", "Робоче місце"
     %th
-      Початок роботи
+      = sortable "work_start", "Початок роботи"
     %th
       Працівники
     %th
       Пристрої
-  - @room_wp.work_play.each do |work|
+  - @room_wp.each do |work|
     %tr
       %td
         = work.name
@@ -34,8 +38,8 @@
               %li 
                 = device.model
       %td 
-        = link_to "Редагувати", edit_room_work_play_path(@room_wp.id, work.id)
+        = link_to "Редагувати", edit_room_work_play_path(@room.id, work.id)
       %td
-        = link_to "Видалити", room_work_play_path(@room_wp.id, work.id), method: :delete, data: { confirm: "Ви впевнені?" }
+        = link_to "Видалити", room_work_play_path(@room.id, work.id), method: :delete, data: { confirm: "Ви впевнені?" }
 
-= link_to "Додати", new_room_work_play_path(@room_wp)
+= link_to "Додати", new_room_work_play_path(@room)
