@@ -582,41 +582,26 @@ device1 = Device.create(
   seriynuy_nomer: 68761982,
   price: 10000,
   buy_date: "2003-01-03",
-  room_id: [room6.id, room7.id, room8.id],
-  work_play_id: [
-    work_plays11.id, 
-    work_plays12.id, 
-    work_plays13.id, 
-    work_plays14.id, 
-    work_plays15.id,
-    work_plays16.id,
-    work_plays17.id,
-    work_plays18.id,
-    work_plays19.id,
-    work_plays20.id,
-    work_plays21.id,
-    work_plays22.id
-  ]
+  work_play_id: work_plays1.id
 )
 
+device2 = Device.create(
+  model: "ARTLINE Gaming X45 v02 (X45v02)",
+  inv_nomer: 15371527,
+  seriynuy_nomer: 68761982,
+  price: 10000,
+  buy_date: "2003-01-03",
+  work_play_id: work_plays2.id
+)
 
-device1 = Device.create(
+device3 = Device.create(
   model: "Impression Initio I5117 (86202)",
   inv_nomer: 15371527,
   seriynuy_nomer: 68761982,
   price: 10000,
   buy_date: "2004-01-03",
-  room_id: [room9.id, room10.id, room11.id],
-  work_play_id: [
-    work_plays23.id, 
-    work_plays24.id, 
-    work_plays25.id, 
-    work_plays26.id, 
-    work_plays27.id,
-    work_plays28.id
-  ]
+  work_play_id: work_plays3.id
 )
-
 
 
 

@@ -1,0 +1,22 @@
+= form_for @device do |f|
+  %div
+    = f.label :model, 'Модель:' 
+    = f.text_field :model
+  %div
+    = f.label :inv_nomer, 'Інвентаризаційний номер:' 
+    = f.text_field :inv_nomer
+  %div 
+    = f.label :seriynuy_nomer, 'Серійний номер:'
+    = f.text_field :seriynuy_nomer
+  %div
+    = f.label :price, 'Ціна:'
+    = f.text_field :price
+  %div
+    = f.label :buy_date, 'Дата придбання'
+    = f.date_field :buy_date
+  %div
+    = f.label :work_play_id, 'Розміщення'
+    = f.select :work_play_id, @work_place.map{ |e| ["Відділ: #{ Room.find(e.room_id).viddil }| Поверх: #{ Room.find(e.room_id).stage }| Номер: #{ Room.find(e.room_id).stage }| Робоче місце:  #{ e.name }", "#{e.id}"] }
+  %div
+    = f.submit 'Додати'
+    = link_to "Назад", url_for(:back), class: 'close'

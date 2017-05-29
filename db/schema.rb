@@ -19,10 +19,8 @@ ActiveRecord::Schema.define(version: 20170528094040) do
     t.float    "price",          limit: 24
     t.date     "buy_date"
     t.integer  "work_play_id"
-    t.integer  "room_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.index ["room_id"], name: "index_devices_on_room_id", using: :btree
     t.index ["work_play_id"], name: "index_devices_on_work_play_id", using: :btree
   end
 
@@ -53,7 +51,6 @@ ActiveRecord::Schema.define(version: 20170528094040) do
     t.index ["work_play_id"], name: "index_workers_on_work_play_id", using: :btree
   end
 
-  add_foreign_key "devices", "rooms"
   add_foreign_key "devices", "work_plays"
   add_foreign_key "work_plays", "rooms"
   add_foreign_key "workers", "work_plays"

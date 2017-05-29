@@ -7,7 +7,6 @@ class CreateDevices < ActiveRecord::Migration[5.0]
       t.float :price
       t.date :buy_date
       t.references :work_play, foreign_key: true
-      t.references :room, foreign_key: true
       
       t.timestamps
     end

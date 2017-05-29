@@ -9,7 +9,7 @@
     = f.label :login, 'Логін'
     = f.text_field :login
   %div
-    = f.label :work_play_id
+    = f.label :work_play_id, 'Розміщення'
     = f.select :work_play_id, @work_place.map{ |e| ["Відділ: #{ Room.find(e.room_id).viddil }| Поверх: #{ Room.find(e.room_id).stage }| Номер: #{ Room.find(e.room_id).stage }| Робоче місце:  #{ e.name }", "#{e.id}"] }
   %div
     = f.submit 'Додати'

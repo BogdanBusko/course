@@ -1,0 +1,29 @@
+%table
+  %tr
+    %th
+      Модель
+    %th
+      Інвентаризаційний номер
+    %th
+      Серійний номер
+    %th
+      Ціна
+    %th
+      Дата придбання
+  - @devices.each do |device|
+    %tr
+      %td
+        = device.model
+      %td
+        = device.inv_nomer
+      %td
+        = device.seriynuy_nomer
+      %td 
+        = device.price
+      %td 
+        = device.buy_date
+      %td
+        = link_to "Редагувати", edit_device_path(device)
+      %td
+        = link_to "Видалити", device_path(device), method: :delete, data: { confirm: "Ви впевнені?" }
+= link_to "Додати", new_device_path

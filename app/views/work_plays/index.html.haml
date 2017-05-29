@@ -6,6 +6,8 @@
       Початок роботи
     %th
       Працівники
+    %th
+      Пристрої
   - @room_wp.work_play.each do |work|
     %tr
       %td
@@ -25,6 +27,12 @@
                 = worker.pib
               %td
                 = worker.posada
+      %td
+        %td
+          %ul
+            - Device.where(work_play_id: work.id).each do |device|
+              %li 
+                = device.model
       %td 
         = link_to "Редагувати", edit_room_work_play_path(@room_wp.id, work.id)
       %td

@@ -16,5 +16,7 @@
         = worker.login
       %td 
         = link_to "Редагувати", edit_worker_path(worker.id)
+      %td
+        = link_to "Видалити", worker_path(worker.id), method: :delete, data: { confirm: "Ви впевнені?" }
 
 = link_to "Додати", new_worker_path
