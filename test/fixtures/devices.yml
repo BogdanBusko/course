@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  model: MyString
+  inv_nomer: 1
+  seriynuy: 
+  price: 1.5
+  buy_date: 2017-05-28
+
+two:
+  model: MyString
+  inv_nomer: 1
+  seriynuy: 
+  price: 1.5
+  buy_date: 2017-05-28

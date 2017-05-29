@@ -1,0 +1,23 @@
+%table
+  %tr
+    %th
+      Поверх
+    %th
+      Кабінет №
+    %th
+      Відділ
+  - @rooms.each do |room|
+    %tr
+      %td
+        = room.stage
+      %td
+        = room.number
+      %td
+        = room.viddil
+      %td
+        = link_to "Переглянути робочі місця", room_work_plays_path(room)
+      %td
+        = link_to "Редагувати", edit_room_path(room)
+      %td
+        = link_to "Видалити", room_path(room), method: :delete, data: {confirm: "Ви впевнені?"}
+= link_to "Додати", new_room_path

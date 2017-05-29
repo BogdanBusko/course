@@ -1,0 +1,13 @@
+= form_for @room do |f|
+  %div
+    = f.label :stage, 'Поверх:' 
+    = f.text_field :stage
+  %div
+    = f.label :number, 'Кабінет №:' 
+    = f.text_field :number
+  %div 
+    = f.label :viddil, 'Відділ:'
+    = f.text_field :viddil
+  %div
+    = f.submit 'Додати'
+    = link_to "Назад", url_for(:back), class: 'close'

@@ -10,31 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523083919) do
+ActiveRecord::Schema.define(version: 20170528100024) do
 
-  create_table "informs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "product_id"
-    t.string   "procesor"
-    t.string   "video_card"
-    t.string   "audio_card"
-    t.string   "hard_disk"
-    t.string   "materunska_plata"
-    t.string   "dod_complectuuchi"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["product_id"], name: "index_informs_on_product_id", using: :btree
-  end
-
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.integer  "inventory_number"
-    t.float    "price",             limit: 24
-    t.integer  "count"
+  create_table "devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "model"
+    t.integer  "inv_nomer"
+    t.integer  "seriynuy_nomer"
+    t.float    "price",          limit: 24
     t.date     "buy_date"
-    t.integer  "expluatation_time"
-    t.string   "spisano"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "work_play_id"
+    t.integer  "room_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["room_id"], name: "index_devices_on_room_id", using: :btree
+    t.index ["work_play_id"], name: "index_devices_on_work_play_id", using: :btree
   end
 
+  create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "number"
+    t.integer  "stage"
+    t.string   "viddil"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sklads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "type"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "work_plays", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.date     "work_start"
+    t.integer  "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_work_plays_on_room_id", using: :btree
+  end
+
+  create_table "workers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "pib"
+    t.string   "posada"
+    t.string   "login"
+    t.integer  "work_play_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["work_play_id"], name: "index_workers_on_work_play_id", using: :btree
+  end
+
+  add_foreign_key "devices", "rooms"
+  add_foreign_key "devices", "work_plays"
+  add_foreign_key "work_plays", "rooms"
+  add_foreign_key "workers", "work_plays"
 end

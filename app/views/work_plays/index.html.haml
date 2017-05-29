@@ -1,0 +1,17 @@
+%table
+  - @room_wp.work_play.each do |work|
+    %tr
+      %td
+        = work.name
+      %td
+        = work.work_start
+      %td
+        %table
+          - @worker.where(work_play_id: work.id).each do |worker|
+            %tr
+              %td
+                = worker.pib
+              %td
+                = worker.posada
+
+= link_to "Додати", new_room_work_play_path(@room_wp)

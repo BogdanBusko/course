@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pib: MyString
+  posada: MyString
+  login: MyString
+
+two:
+  pib: MyString
+  posada: MyString
+  login: MyString

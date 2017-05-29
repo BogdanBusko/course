@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :products do 
-    resources :informs
+  resources :rooms do 
+    resources :work_plays
   end
+  # resources :sklad
+  # resources :devices
+  resources :workers
 
-  root 'products#index'
+  root "rooms#index"
 end

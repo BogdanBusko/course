@@ -1,0 +1,10 @@
+= form_for [:room, @room_wp] do |f|
+  %div
+    = f.label :name, 'Робоче місце:' 
+    = f.text_field :name
+  %div
+    = f.label :work_start, 'Дата створення:' 
+    = f.text_field :work_start
+  %div
+    = f.submit 'Додати'
+    = link_to "Назад", url_for(:back), class: 'close'
