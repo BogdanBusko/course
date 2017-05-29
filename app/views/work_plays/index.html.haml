@@ -13,5 +13,7 @@
                 = worker.pib
               %td
                 = worker.posada
+      %td 
+        = link_to "Редагувати", edit_room_work_play_path(@room_wp.id, work.id)
 
 = link_to "Додати", new_room_work_play_path(@room_wp)
