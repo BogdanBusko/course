@@ -19,10 +19,20 @@ class WorkPlaysController < ApplicationController
   end
 
   def update 
-    @room_wp = WorkPlay.find(params[:id])
+    @room = find(params[:room_id])
+    @room_wp = @room.work_play.find(params[:id])
     @room_wp.update(work_plays_params)
+
     redirect_to room_work_plays_path(@room_wp.room_id)
   end 
+
+  def destroy
+    @room = Room.find(params[:room_id])
+    @room_wp = @room.work_play.find(params[:id])
+    @room_wp.destroy
+
+    redirect_to room_work_plays_path(@room.id)
+  end
 
   private 
 

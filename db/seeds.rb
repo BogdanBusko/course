@@ -89,19 +89,19 @@ room15 = Room.create(
   viddil: "Начальник відділу продаж"
 )
 
-room15 = Room.create(
+room16 = Room.create(
   number: 5,
   stage: 4,
   viddil: "Начальник відділу розробки"
 )
 
-room16 = Room.create(
+room17 = Room.create(
   number: 6,
   stage: 4,
   viddil: "Начальник відділу дизайну"
 )
 
-room17 = Room.create(
+room18 = Room.create(
   number: 6,
   stage: 4,
   viddil: "Начальник відділу кадрів"
@@ -440,7 +440,7 @@ worker18 = Worker.create(
   pib: "Мазуров Рэм Панфилович", 
   posada: "Начальник відділу розробки",
   login: "Fsaasda",
-  work_play_id: work_plays33.id
+  work_play_id: work_plays34.id
 )
 
 worker19 = Worker.create(
@@ -574,30 +574,6 @@ worker37 = Worker.create(
   posada: "Дизайнер",
   login: "Yashal",
   work_play_id: work_plays30.id
-)
-
-worker38 = Worker.create(
-  pib: "Муромцев Гурий Меркулович", 
-  posada: "Охоронець",
-  login: "Zlano"
-)
-
-worker39 = Worker.create(
-  pib: "Непенин Георгий Андронович", 
-  posada: "Охоронець",
-  login: "Ishiaza"
-)
-
-worker40 = Worker.create(
-  pib: "Костенко Феодул Селиванович", 
-  posada: "Головний бухгалтер",
-  login: "Hylbax"
-)
-
-worker41 = Worker.create(
-  pib: "Костенко Феодул Селиванович", 
-  posada: "Зам головного бухгалтера",
-  login: "Nyrgafien"
 )
 
 device1 = Device.create(

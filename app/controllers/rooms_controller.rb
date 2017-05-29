@@ -24,6 +24,7 @@ class RoomsController < ApplicationController
 
   def destroy
     @room = Room.find(params[:id])
+    WorkPlay.delete_work_plays(@room.work_play.ids)
     @room.destroy
 
     redirect_to rooms_path

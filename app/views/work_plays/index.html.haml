@@ -15,5 +15,7 @@
                 = worker.posada
       %td 
         = link_to "Редагувати", edit_room_work_play_path(@room_wp.id, work.id)
+      %td
+        = link_to "Видалити", room_work_play_path(@room_wp.id, work.id), method: :delete, data: { confirm: "Ви впевнені?" }
 
 = link_to "Додати", new_room_work_play_path(@room_wp)
